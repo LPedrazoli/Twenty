@@ -21,17 +21,30 @@ do {
 
     alert(`Computer: ${computerNumber}. User: ${userNumber}.`)
 
-    if (computerNumber > userNumber) {
-        alert(`The computer has won with a score of ${computerNumber}.`)
-        computerScore++
+    if ((computerNumber > 20) && (userNumber < 21) && (userNumber > computerNumber)) {
+        alert(`Congratulations! You won with a score of ${userNumber}.`)
+        userScore++
         alert(`The score is; Computer: ${computerScore} Human: ${userScore}`)
-    } else if (userNumber > computerNumber) {
+    } else if ((computerNumber > 20) && (userNumber < 21) && (computerNumber > userNumber)) {
         alert(`Congratulations! You won with a score of ${userNumber}`)
         userScore++
         alert(`The score is; Computer: ${computerScore} Human: ${userScore}`)
-    } else {
-        alert(`You drew with the bot no points for anyone!`)
+    } else if ((computerNumber < 21) && (userNumber < 21) && (userNumber > computerNumber)) {
+        alert(`Congratulations! You won with a score of ${userNumber}`)
+        userScore++
+        alert(`The score is; Computer: ${computerScore} Human: ${userScore}`)
+    } else if ((computerNumber < 21) && (userNumber < 21) && (computerNumber > userNumber)) {
+        alert(`Uh oh! The computer won with a score of ${userNumber}`)
+        computerScore++
+        alert(`The score is; Computer: ${computerScore} Human: ${userScore}`)
+    } else if ((computerNumber < 20) && (userNumber < 21) && (computerNumber == userNumber)) {
+        alert(`WOW! You tied with a score of ${userNumber}!`)
+        alert(`The score is; Computer: ${computerScore} Human: ${userScore}`)
+    } else { 
+        alert(`Uh oh! You lost with a score of ${userNumber}.`);
+        computerScore++
         alert(`The score is; Computer: ${computerScore} Human: ${userScore}`)
     }
+    exit = prompt(`Would you like to exit? If, so type "Yes".`);
 
-} while exit = prompt(`Would you like to exit? If so, type "Yes".`)
+} while (exit != "Yes")
